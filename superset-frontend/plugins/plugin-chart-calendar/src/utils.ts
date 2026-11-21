@@ -39,6 +39,12 @@ export const convertUTCTimestampToLocal = (utcTimestamp: number): number => {
   return utcTimestamp + offsetMs;
 };
 
+// reverse of above method
+export const convertLocalTimestampToUTC = (localTimestamp: number): number => {
+  const offsetMs = new Date(localTimestamp).getTimezoneOffset() * 60 * 1000;
+  return localTimestamp - offsetMs;
+};
+
 // Escapes HTML special characters before formatter output reaches an
 // innerHTML sink. Mirrors plugin-chart-country-map's escapeHtml.
 export const escapeHtml = (text: unknown): string => {
